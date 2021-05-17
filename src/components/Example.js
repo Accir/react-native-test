@@ -11,6 +11,8 @@ import {
   INCREMENT_COUNTER,
   incrementAsync,
 } from "../store/counter/counterActions";
+import { Platform } from "react-native";
+import PlatformExample from "./PlatformExample";
 
 const Example = () => {
   const [text, setText] = React.useState("");
@@ -74,6 +76,7 @@ const Example = () => {
         <Text>Increment Counter ASYNC</Text>
       </TouchableOpacity>
       <Text>{count}</Text>
+      <PlatformExample />
     </SafeAreaView>
   );
 };
@@ -96,7 +99,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     alignItems: "center",
-    backgroundColor: "#DDDDDD",
+    backgroundColor: Platform.os === "web" ? "#DDDDDD" : "gray",
     padding: 10,
   },
 });
